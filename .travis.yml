@@ -42,9 +42,9 @@ script:
 #- xvfb-maybe node_modules/.bin/karma start test/unit/karma.conf.js
 #- yarn run pack && xvfb-maybe node_modules/.bin/mocha test/e2e
 #- yarn run build
-#- npm run build
 - xvfb-maybe node_modules/.bin/karma start test/unit/karma.conf.js
 - npm run pack && xvfb-maybe node_modules/.bin/mocha test/e2e
+- npm run build
 branches:
   only:
   - master
