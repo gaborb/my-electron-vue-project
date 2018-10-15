@@ -5,6 +5,7 @@
       <div class="left-side">
         <span class="title">
           Welcome to your new project!
+          npm_package_version: {{ version }}
         </span>
         <system-information></system-information>
       </div>
@@ -30,10 +31,22 @@
 </template>
 
 <script>
+  import { ipcRenderer } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
   import SystemInformation from './LandingPage/SystemInformation';
 
   export default {
     name: 'landing-page',
+    data() {
+      return {
+        version: '',
+      };
+    },
+    created() {
+      ipcRenderer.on('asynchronous-reply', (event, args) => {
+        this.version = args.version;
+      });
+      ipcRenderer.send('asynchronous-message', 'ping');
+    },
     components: { SystemInformation },
     methods: {
       open(link) {

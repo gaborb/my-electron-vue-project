@@ -1,6 +1,6 @@
 {
   "name": "my-electron-vue-project",
-  "version": "0.0.1",
+  "version": "0.0.9-snapshot",
   "author": "Gabor Barnak <gabor.barnak@gmail.com>",
   "description": "An electron-vue project",
   "license": null,
